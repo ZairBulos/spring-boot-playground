@@ -1,0 +1,30 @@
+services:
+  database:
+    image: mongodb/mongodb-community-server:5.0.4-ubuntu2004
+    container_name: mongodb_container
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongo
+      MONGO_INITDB_ROOT_PASSWORD: mongo
+      MONGO_INITDB_DATABASE: reactive
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app_container
+    restart: always
+    depends_on:
+      - database
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://mongo:mongo@database:27017/reactive?authSource=admin
+
+volumes:
+  mongo-data:
+    name: "mongo-data"

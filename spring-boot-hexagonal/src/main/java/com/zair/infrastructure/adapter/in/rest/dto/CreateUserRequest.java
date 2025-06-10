@@ -1,14 +1,12 @@
-package com.zair.infraestructure.adapter.in.rest.dtos;
+package com.zair.infrastructure.adapter.in.rest.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
-public record UserRequestDto(
+public record CreateUserRequest(
         @NotBlank(message = "Name is required")
         String name,
 
         @NotBlank(message = "Email is required")
-        @Email(message = "Email is not valid")
-        String email
-) {
-}
+        @Email(message = "Invalid email format")
+        String email) {}

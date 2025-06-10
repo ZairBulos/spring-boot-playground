@@ -1,4 +1,4 @@
-package com.zair.infraestructure.adapter.in.rest.exception;
+package com.zair.infrastructure.adapter.in.rest.exception;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

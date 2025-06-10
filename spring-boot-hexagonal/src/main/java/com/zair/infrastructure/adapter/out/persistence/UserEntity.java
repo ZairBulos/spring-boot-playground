@@ -1,15 +1,15 @@
-package com.zair.infraestructure.adapter.out.persistence;
+package com.zair.infrastructure.adapter.out.persistence;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "users")
+@Getter
+@Setter
+@NoArgsConstructor
 public class UserEntity {
 
     @Id

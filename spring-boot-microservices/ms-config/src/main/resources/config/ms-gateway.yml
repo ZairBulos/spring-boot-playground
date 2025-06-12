@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: ms-gateway
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: ms-product
+              uri: http://localhost:8081
+              predicates:
+                - Path=/products/**
+            - id: ms-inventory
+              uri: http://localhost:8082
+              predicates:
+                - Path=/inventories/**
+
+server:
+  port: 8080
+
+eureka:
+  client:
+    register-with-eureka: false
